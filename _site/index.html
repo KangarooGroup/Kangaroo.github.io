@@ -11,8 +11,8 @@
         td{border:1px solid #cacaca;font-size:15px;}
         th{border:1px solid #cacaca;font-size:16px;}
 		footer{text-align: center}
-        .font5{color:windowtext;padding: 3px;}
         .gg{vertical-align: middle; background:rgb(242, 242, 242);}
+        .lgg{vertical-align: middle; background:rgb(250, 250, 250);}
         .wg{vertical-align: middle;}
         .video-container{display: flex; flex-direction: row; align-items: center; justify-content: center;}
     </style>
@@ -32,307 +32,300 @@
 </head>
 <body>
 
-<!-- Head -->
+<!-- Title -->
 <section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title" style="display: flex; align-items: center;justify-content: center;font-size: 46px;width: 1100px;">
-            <img src="static/images/kangaroo_logo.png" alt="Logo" style="height: 120px;">
-            Kangaroo: A Powerful Video-Language Model Supporting Long-context Video Input</h1>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              Jiajun Liu<sup>1*</sup>,</span>
-            <span class="author-block">
-              Yibing Wang<sup>1,2*</sup>,</span>
-            <span class="author-block">
-              Hanghang Ma<sup>1*</sup>,
-            </span>
-            <span class="author-block">
-              XiaoPing Wu<sup>1*</sup>,
-            </span>
-            <span class="author-block">
-              Xiaoqi Ma<sup>1*</sup>,
-            </span>
-            <span class="author-block">
-              Jie Hu<sup>1</sup>,
-            </span>
-          </div>
+  	<div class="hero-body">
+    	<div class="container is-max-desktop">
+      		<div class="columns is-centered">
+        		<div class="column has-text-centered">
+          			<h1 class="title is-1 publication-title" style="display: flex; align-items: center;justify-content: center;font-size: 46px;width: 1100px;">
+            		<img src="static/images/kangaroo_logo.png" alt="Logo" style="height: 100px;">
+            		Kangaroo: A Powerful Video-Language Model Supporting Long-context Video Input</h1>
+					
+					<div class="is-size-5 publication-authors">
+						<span class="author-block">
+						Jiajun Liu<sup>1*</sup>,</span>
+						<span class="author-block">
+						Yibing Wang<sup>1,2*</sup>,</span>
+						<span class="author-block">
+						Hanghang Ma<sup>1*</sup>,
+						</span>
+						<span class="author-block">
+						XiaoPing Wu<sup>1*</sup>,
+						</span>
+						<span class="author-block">
+						Xiaoqi Ma<sup>1*</sup>,
+						</span>
+						<span class="author-block">
+						Jie Hu<sup>1</sup>,
+						</span>
+					</div>
 
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1 </sup>Meituan Inc.</span>
-            <span class="author-block"><sup>2 </sup>University of Chinese Academy of Sciences</span>
-          </div>
+					<div class="is-size-5 publication-authors">
+						<span class="author-block"><sup>1 </sup>Meituan Inc.</span>
+						<span class="author-block"><sup>2 </sup>University of Chinese Academy of Sciences</span>
+					</div>
 
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- PDF Link. -->
-              <span class="link-block">
-                <!-- <a href="https://arxiv.org/pdf/2011.12948" -->
-                <a class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span>
+					<div class="column has-text-centered">
+						<!-- PDF Link. -->
+						<span class="link-block">
+							<!-- <a href="https://arxiv.org/pdf/2011.12948" -->
+							<a class="external-link button is-normal is-rounded is-dark">
+							<span class="icon">
+								<i class="fas fa-file-pdf"></i>
+							</span>
+							<span>Paper (Coming soon)</span>
+							</a>
+						</span>
 
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href="https://github.com/KangarooGroup/Kangaroo"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                  </a>
-              </span>
+						<!-- Code Link. -->
+						<span class="link-block">
+							<a href="https://github.com/KangarooGroup/Kangaroo"
+							class="external-link button is-normal is-rounded is-dark">
+							<span class="icon">
+								<i class="fab fa-github"></i>
+							</span>
+							<span>Code</span>
+							</a>
+						</span>
 
-              <!-- Model Link. -->
-              <span class="link-block">
-                <a href="https://huggingface.co/KangarooGroup/kangaroo"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      🤗
-                  </span>
-                  <span>Model</span>
-                  </a>
-              </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+						<!-- Model Link. -->
+						<span class="link-block">
+							<a href="https://huggingface.co/KangarooGroup/kangaroo"
+							class="external-link button is-normal is-rounded is-dark">
+							<span class="icon">
+								🤗
+							</span>
+							<span>Model</span>
+							</a>
+						</span>
+        			</div>
+      			</div>
+    		</div>
+  		</div>
+	</div>
 </section>
 
 <!-- Abstract. -->
 <section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            We introduce Kangaroo, a bilingual multi-modal LLM aimed at long-context video understanding.
-          </p>
-          <p>
-            We collect a large dataset designed for long video preatraining and understanding tasks.
-          </p>
-          <p>
-            Our model outperforms existing state-of-the-art methods in long video benchmarks.
-          </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Abstract. -->
+	<div class="container is-max-desktop">
+		<div class="columns is-centered has-text-centered">
+			<div class="column is-four-fifths">
+				<h2 class="title is-3">Abstract</h2>
+				<div class="content has-text-justified">
+					We introduce Kangaroo, a powerful video multi-modal LLM aimed at long-context video understanding.We collect a large dataset designed for 
+					long video preatraining and understanding tasks.Our model outperforms existing state-of-the-art methods in comprehensive video benchmarks.
+				</div>
+			</div>
+		</div>
 </section>
 
 <!-- Model -->
 <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Model</h2>
-          <div class="content has-text-justified" style="margin: 20px;">
-            Kangaroo consists of a vision encoder (EVA-CLIP-L), a linear projection layer and a large language model (LLama3-8B):
-          </div>
-        </div>
-      </div>
-    </div>
-    <div style="text-align: center;">
-        <img id="model" width="40%" src="static/images/model.png">
-        <h3 class="subtitle has-text-centered">
-        <p style="font-family:Times New Roman; margin: 20px;">The architecture of Kangaroo</p>
-    </div>
+	<div class="container is-max-desktop">
+		<div class="columns is-centered has-text-centered">
+			<div class="column is-four-fifths">
+				<h2 class="title is-3">Model</h2>
+				<div class="content has-text-justified" style="margin: 20px;">
+					Kangaroo consists of a vision encoder (EVA-CLIP-L), a linear projection layer and a large language model (LLama3-8B):
+				</div>
+			</div>
+		</div>
+	</div>
+	<div style="text-align: center;">
+			<img id="model" width="40%" src="static/images/model.png">
+			<h3 class="subtitle has-text-centered">
+			<p style="font-family:Times New Roman; margin: 20px;">The architecture of Kangaroo</p>
+	</div>
 </section>
 
 <!-- Dataset -->
 <section class="section">
-    <div class="container is-max-desktop">
-        <div class="columns is-centered has-text-centered">
-            <div class="column is-four-fifths">
-                <h2 class="title is-3">Dataset Statistics</h2>
-                <div class="content has-text-justified">
-                    <p><strong>Data curation</strong><br>
-                        We collect and XXX images from ... for image-text pretraining and XXX videos from ...
-                        After collection, we screen the image and video data based on text coverage, face coverage, optical flow and class balance.
-                    </p>
-                    <p><strong>Automatic Annotation</strong><br>
-                        We develop an automatic video caption system. First, we sample 5 frames of each video and leverage off-the-shelf MLLM as frame captioner. 
-                        Then, we aggregate the key frame captions with open-sourced LLM. We further refine the generated video caption in the last step.
-                    </p>
-                    <p><strong>Instruction Tuning Data</strong><br>
-                        In order to enhance the comprehensive understanding ability of the model, we collect a total number of 2.24M video instruction tuning dataset
-                        convering multiple tasks from open-sourced datasets and online sources. The instruction tuning dataset consists of short caption, detailed description, 
-                        multiple choice and open-ended QA pairs, single-round and multi-round conversations, inluding both Chinese and English data.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="image-row" style="text-align: center;">
-            <img src="static/images/instruction_dataset.png" width="40%" style="margin: 20px;">
+	<div class="container is-max-desktop">
+		<div class="columns is-centered has-text-centered">
+			<div class="column is-four-fifths">
+				<h2 class="title is-3">Dataset Statistics</h2>
+				<div class="content has-text-justified">
+					<p><strong>Data curation</strong><br>
+						We collect and XXX images from ... for image-text pretraining and XXX videos from ...
+						After collection, we screen the image and video data based on text coverage, face coverage, optical flow and class balance.
+					</p>
+					<p><strong>Automatic Annotation</strong><br>
+						We develop an automatic video caption system. First, we sample 5 frames of each video and leverage off-the-shelf MLLM as frame captioner. 
+						Then, we aggregate the key frame captions with open-source LLM. We further refine the generated video caption in the last step.
+					</p>
+					<p><strong>Instruction Tuning Data</strong><br>
+						In order to enhance the comprehensive understanding ability of the model, we collect a total number of 2.24M video instruction tuning dataset
+						convering multiple tasks from open-source datasets and online sources. The instruction tuning dataset consists of short caption, detailed description, 
+						multiple choice and open-ended QA pairs, single-round and multi-round conversations, inluding both Chinese and English data.
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="image-row" style="text-align: center;">
+			<img src="static/images/instruction_dataset.png" width="40%" style="margin: 20px;">
 			<h3 class="subtitle has-text-centered">
 			<p style="font-family:Times New Roman">Distribution of instruction tuning dataset.</p>
-        </div>
-    </div>
+		</div>
+	</div>
 </section>
 
 <!-- Model Card -->
 <section class="section">
     <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Model Card</h2>
-        </div>
-      </div>
+		<div class="columns is-centered has-text-centered">
+			<div class="column is-four-fifths">
+				<h2 class="title is-3">Model Card</h2>
+			</div>
+		</div>
     </div>
     <div style="text-align: center; margin: 20px;">
-      <table style="text-align: center;;margin:auto">
-        <colgroup>
-        <col style="mso-width-source:userset;width:80pt"> 
-        <col style="mso-width-source:userset;width:80pt"> 
-        <col style="mso-width-source:userset;width:180pt"> 
-        <col style="mso-width-source:userset;width:180pt"> 
-        <col style="mso-width-source:userset;width:200pt">
-        <col style="mso-width-source:userset;width:200pt">
-        </colgroup>
-        <tbody>
-        <tr height="45"> 
-        <th rowspan="3" class="gg">Model</th> 
-        <th rowspan="2" class="gg">Module</th> 
-        <th class="gg">Visual Encoder</th> 
-        <th class="gg">Projector</th> 
-        <th class="gg">Patchify</th> 
-        <th class="gg">LLM</th> 
-        </tr> 
-        <tr height="45"> 
-        <td class="wg">EVA-CLIP ViT-L</td> 
-        <td class="wg">Linear</td> 
-        <td class="wg">3D Depthwise convolution</td> 
-        <td class="wg">Llama3</td> 
-        </tr> 
-        <tr height="45"> 
-        <th class="gg">Size</th> 
-        <td class="gg">303M</td> 
-        <td class="gg">M</td> 
-        <td class="gg">M</td> 
-        <td class="gg">8B</td> 
-        </tr> 
-        <tr height="45"> 
-        <th colspan="2" rowspan="3" class="gg" style="font-size: 20px;">Stage 1</th> 
-        <th class="wg">Resolution</th> 
-        <td colspan="3" class="wg">224</td> 
-        </tr> 
-        <tr height="45"> 
-        <th class="gg">Training Data</th> 
-        <td colspan="3" class="gg">1B, recaption from LAION, COYO and Noah-Wukong</td> 
-        </tr> 
-        <tr height="45"> 
-        <th class="wg">Trainable Module</th> 
-        <td colspan="3" class="wg">ViT + Projector</td> 
-        </tr> 
-        <tr height="45"> 
-        <th colspan="2" rowspan="3" class="gg" style="font-size: 20px;">Stage 2</th> 
-        <th class="gg">Resolution</th> 
-        <td colspan="3" class="gg">224 × 8 frames</td> 
-        </tr> 
-        <tr height="45"> 
-        <th class="wg">Training Data</th> 
-        <td colspan="3" class="wg">60M, annotate from internal data</td> 
-        </tr> 
-        <tr height="45"> 
-        <th class="gg">Trainable Module</th> 
-        <td colspan="3" class="gg">ViT + Projector</td> 
-        </tr> 
-        <tr height="45"> 
-        <th colspan="2" rowspan="3" class="gg" style="font-size: 20px;">Stage 3</th> 
-        <th class="wg">Resolution</th> 
-        <td colspan="3" class="wg">448 × 16 frames</td> 
-        </tr> 
-        <tr height="45"> 
-        <th class="gg">Training Data</th> 
-        <td colspan="3" class="gg">6.9M, ShareGPTVideo and annotate from internal data</td> 
-        </tr> 
-        <tr height="45"> 
-        <th class="wg">Trainable Module</th> 
-        <td colspan="3" class="wg">ViT + Projector + Patchify</td> 
-        </tr> 
-        <tr height="45"> 
-        <th colspan="2" rowspan="3" class="gg" style="font-size: 20px;">Stage 4</th> 
-        <th class="gg">Resolution</th> 
-        <td colspan="3" class="gg">448 × (16 to 64 frames)</td> 
-        </tr> 
-        <tr height="80"> 
-        <th class="wg">Training Data</th> 
-        <td colspan="3" class="wg">2.24M, open-source datasets and annotated internal data covering short caption, dense caption,<br> video QA, single-round conversation and multi-round conversation in Chinese and English</td> 
-        </tr> 
-        <tr height="45"> 
-        <th class="gg">Trainable Module</th> 
-        <td colspan="3" class="gg">Full model</td> 
-        </tr> 
-        <tr height="45"> 
-        <th colspan="2" rowspan="3" class="gg" style="font-size: 20px;">Stage 5</th> 
-        <th class="wg">Resolution</th> 
-        <td colspan="3" class="wg">448 × (16 to 64 frames for short videos, 64 to 160 frames for long videos)</td> 
-        </tr> 
-        <tr height="45"> 
-        <th class="gg">Training Data</th> 
-        <td colspan="3" class="gg">700K, videos longer than 64s and random sampled short videos from instruction tuning dataset</td> 
-        </tr> 
-        <tr height="45"> 
-        <th class="wg">Trainable Module</th> 
-        <td colspan="3" class="wg">LLM + Projector + Patchify</td> 
-        </tr> <!--EndFragment--> 
-        </tbody>
-      </table>
+			<table style="text-align: center;;margin:auto">
+				<colgroup>
+				<col style="mso-width-source:userset;width:200pt"> 
+				<col style="mso-width-source:userset;width:180pt"> 
+				<col style="mso-width-source:userset;width:160pt"> 
+				<col style="mso-width-source:userset;width:200pt">
+				<col style="mso-width-source:userset;width:160pt">
+				</colgroup>
+				<tbody>
+				<tr height="45"> 
+				<!-- <th rowspan="2" class="gg">Model</th>  -->
+				<th rowspan="2" style="font-size: 20px;" class="gg">Modules</th> 
+				<th class="gg">Visual Encoder</th> 
+				<th class="gg">Projector</th> 
+				<th class="gg">Patchify Module</th> 
+				<th class="gg">LLM</th> 
+				</tr> 
+				<tr height="45"> 
+				<td class="lgg">EVA-CLIP ViT-L</td> 
+				<td class="lgg">Linear</td> 
+				<td class="lgg">3D Depthwise convolution</td> 
+				<td class="lgg">Llama3-8B</td> 
+				<!-- </tr> 
+				<tr height="45"> 
+				<th class="gg">Size</th> 
+				<td class="gg">303M</td> 
+				<td class="gg">-</td> 
+				<td class="gg">-</td> 
+				<td class="gg">8B</td> 
+				</tr>  -->
+				<tr height="45"> 
+				<th colspan="1" rowspan="3" class="gg" style="font-size: 18px;">Stage 1<br>Image Pre-training</th> 
+				<th class="wg">Resolution</th> 
+				<td colspan="3" class="wg">224</td> 
+				</tr> 
+				<tr height="45"> 
+				<th class="lgg">Training Data</th> 
+				<td colspan="3" class="lgg">300M</td> 
+				</tr> 
+				<tr height="45"> 
+				<th class="wg">Trainable Module</th> 
+				<td colspan="3" class="wg">ViT + Projector</td> 
+				</tr> 
+				<tr height="45"> 
+				<th colspan="1" rowspan="3" class="gg" style="font-size: 18px;">Stage 2<br>Video Pre-training</th> 
+				<th class="lgg">Resolution</th> 
+				<td colspan="3" class="lgg">224 × 8 frames</td> 
+				</tr> 
+				<tr height="45"> 
+				<th class="wg">Training Data</th> 
+				<td colspan="3" class="wg">60M</td> 
+				</tr> 
+				<tr height="45"> 
+				<th class="lgg">Trainable Module</th> 
+				<td colspan="3" class="lgg">ViT + Projector</td> 
+				</tr> 
+				<tr height="45"> 
+				<th colspan="1" rowspan="3" class="gg" style="font-size: 18px;">Stage 3<br>Refined Pre-training</th> 
+				<th class="wg">Resolution</th> 
+				<td colspan="3" class="wg">448 × 16 frames</td> 
+				</tr> 
+				<tr height="45"> 
+				<th class="lgg">Training Data</th> 
+				<td colspan="3" class="lgg">6.9M</td> 
+				</tr> 
+				<tr height="45"> 
+				<th class="wg">Trainable Module</th> 
+				<td colspan="3" class="wg">ViT + Projector + Patchify Module</td> 
+				</tr> 
+				<tr height="45"> 
+				<th colspan="1" rowspan="3" class="gg" style="font-size: 18px;">Stage 4<br>Instruction Tuning</th> 
+				<th class="lgg">Resolution</th> 
+				<td colspan="3" class="lgg">448 × (16 to 64 frames)</td> 
+				</tr> 
+				<tr height="45"> 
+				<th class="wg">Training Data</th> 
+				<td colspan="3" class="wg">2.24M</td> 
+				</tr> 
+				<tr height="45"> 
+				<th class="lgg">Trainable Module</th> 
+				<td colspan="3" class="lgg">Full model</td> 
+				</tr> 
+				<tr height="45"> 
+				<th colspan="1" rowspan="3" class="gg" style="font-size: 18px;">Stage 5<br>Long Video Tuning</th> 
+				<th class="wg">Resolution</th> 
+				<td colspan="3" class="wg">448 × (16 to 64 frames for short videos, 64 to 160 frames for long videos)</td> 
+				</tr> 
+				<tr height="45"> 
+				<th class="lgg">Training Data</th> 
+				<td colspan="3" class="lgg">700K</td> 
+				</tr> 
+				<tr height="45"> 
+				<th class="wg">Trainable Module</th> 
+				<td colspan="3" class="wg">LLM + Projector + Patchify Module</td> 
+				</tr> <!--EndFragment--> 
+				</tbody>
+			</table>
     </div>
 </section>
 
 <!-- Result -->
 <section class="section">
-	<div class="columns is-centered has-text-centered">
-		<div class="column is-four-fifths">
-			<h2 class="title is-3">Results</h2>
-			<div class="content has-text-justified">
-				<p><strong>Results on Video Benchmarks</strong><br>
-					For comprehensive evaluation, we assess the performance of our proposed model across zero-shot QA benchmarks: MSVD-QA, MSRVTT-QA, ActivityNet-QA and 
-					comprehensive video benchmarks: MVBench, VideoMME, MLVU. Our model outperforms existing state-of-the-art methods.
-				</p>
+	<div class="container is-max-desktop">
+		<div class="columns is-centered has-text-centered">
+			<div class="column is-four-fifths">
+				<h2 class="title is-3">Results</h2>
+				<div class="content has-text-justified">
+					<p>For comprehensive evaluation, we assess the performance of our proposed model across comprehensive video benchmarks:
+						 Our model outperforms existing state-of-the-art methods.</p>
+				</div>
 			</div>
 		</div>
 	</div>
 	<div style="text-align: center;">
-		<h3 class="subtitle has-text-centered">
-		<p style="font-family:Times New Roman">Comparison with SOTAs on Video Benchmark.</p>
+		<img src="static/images/bench.png" width="50%" style="margin: 20px;">
 	</div>
 </section>
 
 <!-- Demo -->
 <section class="section">
-    <div style="text-align: center;">
-        <h2 class="title is-3">Demo</h2>
-        <p style="font-family:Times New Roman;font-size:larger;">
-			(Demo videos are from <a href=https://openai.com/index/video-generation-models-as-world-simulators>openai sora)</a>
-		</p>
-        <div class="video-container" style="text-align: center; margin: 10px;">
-            <video id="demo1" controls muted loop playsinline style="height: 300px; margin: 20px">
-                <source src="./static/videos/demo1_1.mp4" type="video/mp4">
-            </video>
-            <video id="demo2_1" controls muted loop playsinline style="height: 300px; margin: 20px">
-                <source src="./static/videos/demo1_2.mp4" type="video/mp4">
-            </video>
-        </div>
-        <img id="model" width="50%" src="static/images/demo1_result.png">
-    </div>
-    <div style="text-align: center; margin: 100px;">
-        <div class="video-container" style="text-align: center; margin: 50px;">
-            <video id="demo2_1" controls muted loop playsinline style="height: 400px;">
-                <source src="./static/videos/demo2.mp4" type="video/mp4">
-            </video>
-        </div>
-        <img id="model" width="55%" src="static/images/demo2_result.png">
-    </div>
+	<div style="text-align: center;">
+		<h2 class="title is-3">Demo</h2>
+		<p style="font-family:Times New Roman;font-size:larger;">
+		(Demo videos are from <a href=https://openai.com/index/video-generation-models-as-world-simulators>openai sora)</a></p>
+		
+		<!-- Demo1 -->
+		<div class="video-container" style="text-align: center; margin: 10px;">
+			<video id="demo1_1" controls muted loop playsinline style="height: 300px; margin: 20px">
+				<source src="./static/videos/demo1_1.mp4" type="video/mp4">
+			</video>
+			<video id="demo1_2" controls muted loop playsinline style="height: 300px; margin: 20px">
+				<source src="./static/videos/demo1_2.mp4" type="video/mp4">
+			</video>
+		</div>
+		<img id="model" width="50%" src="static/images/demo1.png">
+	</div>
+
+	<!-- Demo2 -->
+	<div style="text-align: center; margin: 100px;">
+		<div class="video-container" style="text-align: center; margin: 50px;">
+			<video id="demo2" controls muted loop playsinline style="height: 350px;">
+				<source src="./static/videos/demo2.mp4" type="video/mp4">
+			</video>
+		</div>
+		<img id="model" width="55%" src="static/images/demo2.png">
+	</div>
 </section>
 
 <!-- foot -->
