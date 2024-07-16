@@ -1,41 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="description"
-        content="Kangaroo: Video LLM.">
-  <meta name="keywords" content="Multi-modal, Video, LLM">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kangaroo</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Kangaroo: Video LLM.">
+    <meta name="keywords" content="Multi-modal, Video, LLM">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kangaroo</title>
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
+    <style>
+        td{border:1px solid #cacaca;font-size:15px;}
+        th{border:1px solid #cacaca;font-size:16px;}
+		footer{text-align: center}
+        .font5{color:windowtext;padding: 3px;}
+        .gg{vertical-align: middle; background:rgb(242, 242, 242);}
+        .wg{vertical-align: middle;}
+        .video-container{display: flex; flex-direction: row; align-items: center; justify-content: center;}
+    </style>
 
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro">
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="icon" href="./static/images/favicon.svg">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/fontawesome.all.min.js"></script>
 </head>
 <body>
 
+<!-- Head -->
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title" style="display: flex; align-items: center;justify-content: center;">
-            <img src="static/images/kangaroo_logo.png" alt="Logo" style="height: 110px;">
-            Kangaroo: A Bilingual Multi-modal LLM for Long-Context Video Understanding</h1>
+          <h1 class="title is-1 publication-title" style="display: flex; align-items: center;justify-content: center;font-size: 46px;width: 1100px;">
+            <img src="static/images/kangaroo_logo.png" alt="Logo" style="height: 120px;">
+            Kangaroo: A Powerful Video-Language Model Supporting Long-context Video Input</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               Jiajun Liu<sup>1*</sup>,</span>
@@ -129,96 +134,221 @@
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <h2 class="title is-3">Model</h2>
-          <div class="content has-text-justified">
-            Kangaroo consists of a vision encoder (EVA-CLIP-L), a linear projection layer and a large language model (LLama3):
+          <div class="content has-text-justified" style="margin: 20px;">
+            Kangaroo consists of a vision encoder (EVA-CLIP-L), a linear projection layer and a large language model (LLama3-8B):
           </div>
         </div>
       </div>
-      <div style="text-align: center;">
-        <img id="model" width="80%" src="static/images/model.png">
-        <h3 class="subtitle has-text-centered">
-        <p style="font-family:Times New Roman">The architecture of Kangaroo</p>
-      </div>
     </div>
-  </section>
+    <div style="text-align: center;">
+        <img id="model" width="40%" src="static/images/model.png">
+        <h3 class="subtitle has-text-centered">
+        <p style="font-family:Times New Roman; margin: 20px;">The architecture of Kangaroo</p>
+    </div>
+</section>
 
 <!-- Dataset -->
 <section class="section">
     <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Dataset Statistics</h2>
-          <div class="content has-text-justified">
-            <p>
-              <strong>Data curation</strong><br>
-              We collect and XXX images from ... for image-text pretraining and XXX videos from ...
-              After collection, we screen the image and video data based on text coverage, face coverage, optical flow and class balance.
-            </p>
-            <p>
-              <strong>Automatic Annotation</strong><br>
-              We develop an automatic video caption system. First, we sample 5 frames of each video and leverage off-the-shelf MLLM as frame captioner. 
-              Then, we aggregate the key frame captions with open-sourced LLM. We further refine the generated video caption in the last step.
-            </p>
-            <p>
-              <strong>Instruction Tuning Data</strong><br>
-              In order to enhance the comprehensive understanding ability of the model, we collect a total number of 2.24M video instruction tuning dataset
-              convering multiple tasks from open-sourced datasets and online sources. The instruction tuning dataset consists of short caption, detailed description, 
-              multiple choice and open-ended QA pairs, single-round and multi-round conversations, inluding both Chinese and English data.
-            </p>
-          </div>
-  
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Dataset Statistics</h2>
+                <div class="content has-text-justified">
+                    <p><strong>Data curation</strong><br>
+                        We collect and XXX images from ... for image-text pretraining and XXX videos from ...
+                        After collection, we screen the image and video data based on text coverage, face coverage, optical flow and class balance.
+                    </p>
+                    <p><strong>Automatic Annotation</strong><br>
+                        We develop an automatic video caption system. First, we sample 5 frames of each video and leverage off-the-shelf MLLM as frame captioner. 
+                        Then, we aggregate the key frame captions with open-sourced LLM. We further refine the generated video caption in the last step.
+                    </p>
+                    <p><strong>Instruction Tuning Data</strong><br>
+                        In order to enhance the comprehensive understanding ability of the model, we collect a total number of 2.24M video instruction tuning dataset
+                        convering multiple tasks from open-sourced datasets and online sources. The instruction tuning dataset consists of short caption, detailed description, 
+                        multiple choice and open-ended QA pairs, single-round and multi-round conversations, inluding both Chinese and English data.
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="image-row" style="text-align: center;">
-        <img src="./static/images/question_theme_dist.png" alt="Distribution of Question Themes">
-        <img src="./static/images/hardness_stat.png" alt="Statistics on Question Hardness">
-        <img src="static\images\instruction_dataset.png" width="50%" alt="Statistics on Instruction dataset">
-      </div>
+        <div class="image-row" style="text-align: center;">
+            <img src="static/images/instruction_dataset.png" width="40%" style="margin: 20px;">
+			<h3 class="subtitle has-text-centered">
+			<p style="font-family:Times New Roman">Distribution of instruction tuning dataset.</p>
+        </div>
     </div>
-  </section>
+</section>
 
-<!-- Result -->
+<!-- Model Card -->
 <section class="section">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3">Results</h2>
-          <div class="content has-text-justified">
-            <p>
-              <strong>Results on Video Benchmarks</strong><br>
-              For comprehensive evaluation, we assess the performance of our proposed model across zero-shot QA benchmarks: MSVD-QA, MSRVTT-QA, ActivityNet-QA and 
-              comprehensive video benchmarks: MVBench, VideoMME, MLVU. Our model outperforms existing state-of-the-art methods.
-            </p>
-          </div>
-  
+          <h2 class="title is-3">Model Card</h2>
         </div>
       </div>
-      <div style="text-align: center;">
-        <img id="model" width="80%" src="static/images/benchmarks.png">
-        <h3 class="subtitle has-text-centered">
-        <p style="font-family:Times New Roman">Comparison with SOTAs on Video Benchmark.</p>
-      </div>
     </div>
-  </section>
-
-  </div>
+    <div style="text-align: center; margin: 20px;">
+      <table style="text-align: center;;margin:auto">
+        <colgroup>
+        <col style="mso-width-source:userset;width:80pt"> 
+        <col style="mso-width-source:userset;width:80pt"> 
+        <col style="mso-width-source:userset;width:180pt"> 
+        <col style="mso-width-source:userset;width:180pt"> 
+        <col style="mso-width-source:userset;width:200pt">
+        <col style="mso-width-source:userset;width:200pt">
+        </colgroup>
+        <tbody>
+        <tr height="45"> 
+        <th rowspan="3" class="gg">Model</th> 
+        <th rowspan="2" class="gg">Module</th> 
+        <th class="gg">Visual Encoder</th> 
+        <th class="gg">Projector</th> 
+        <th class="gg">Patchify</th> 
+        <th class="gg">LLM</th> 
+        </tr> 
+        <tr height="45"> 
+        <td class="wg">EVA-CLIP ViT-L</td> 
+        <td class="wg">Linear</td> 
+        <td class="wg">3D Depthwise convolution</td> 
+        <td class="wg">Llama3</td> 
+        </tr> 
+        <tr height="45"> 
+        <th class="gg">Size</th> 
+        <td class="gg">303M</td> 
+        <td class="gg">M</td> 
+        <td class="gg">M</td> 
+        <td class="gg">8B</td> 
+        </tr> 
+        <tr height="45"> 
+        <th colspan="2" rowspan="3" class="gg" style="font-size: 20px;">Stage 1</th> 
+        <th class="wg">Resolution</th> 
+        <td colspan="3" class="wg">224</td> 
+        </tr> 
+        <tr height="45"> 
+        <th class="gg">Training Data</th> 
+        <td colspan="3" class="gg">1B, recaption from LAION, COYO and Noah-Wukong</td> 
+        </tr> 
+        <tr height="45"> 
+        <th class="wg">Trainable Module</th> 
+        <td colspan="3" class="wg">ViT + Projector</td> 
+        </tr> 
+        <tr height="45"> 
+        <th colspan="2" rowspan="3" class="gg" style="font-size: 20px;">Stage 2</th> 
+        <th class="gg">Resolution</th> 
+        <td colspan="3" class="gg">224 × 8 frames</td> 
+        </tr> 
+        <tr height="45"> 
+        <th class="wg">Training Data</th> 
+        <td colspan="3" class="wg">60M, annotate from internal data</td> 
+        </tr> 
+        <tr height="45"> 
+        <th class="gg">Trainable Module</th> 
+        <td colspan="3" class="gg">ViT + Projector</td> 
+        </tr> 
+        <tr height="45"> 
+        <th colspan="2" rowspan="3" class="gg" style="font-size: 20px;">Stage 3</th> 
+        <th class="wg">Resolution</th> 
+        <td colspan="3" class="wg">448 × 16 frames</td> 
+        </tr> 
+        <tr height="45"> 
+        <th class="gg">Training Data</th> 
+        <td colspan="3" class="gg">6.9M, ShareGPTVideo and annotate from internal data</td> 
+        </tr> 
+        <tr height="45"> 
+        <th class="wg">Trainable Module</th> 
+        <td colspan="3" class="wg">ViT + Projector + Patchify</td> 
+        </tr> 
+        <tr height="45"> 
+        <th colspan="2" rowspan="3" class="gg" style="font-size: 20px;">Stage 4</th> 
+        <th class="gg">Resolution</th> 
+        <td colspan="3" class="gg">448 × (16 to 64 frames)</td> 
+        </tr> 
+        <tr height="80"> 
+        <th class="wg">Training Data</th> 
+        <td colspan="3" class="wg">2.24M, open-source datasets and annotated internal data covering short caption, dense caption,<br> video QA, single-round conversation and multi-round conversation in Chinese and English</td> 
+        </tr> 
+        <tr height="45"> 
+        <th class="gg">Trainable Module</th> 
+        <td colspan="3" class="gg">Full model</td> 
+        </tr> 
+        <tr height="45"> 
+        <th colspan="2" rowspan="3" class="gg" style="font-size: 20px;">Stage 5</th> 
+        <th class="wg">Resolution</th> 
+        <td colspan="3" class="wg">448 × (16 to 64 frames for short videos, 64 to 160 frames for long videos)</td> 
+        </tr> 
+        <tr height="45"> 
+        <th class="gg">Training Data</th> 
+        <td colspan="3" class="gg">700K, videos longer than 64s and random sampled short videos from instruction tuning dataset</td> 
+        </tr> 
+        <tr height="45"> 
+        <th class="wg">Trainable Module</th> 
+        <td colspan="3" class="wg">LLM + Projector + Patchify</td> 
+        </tr> <!--EndFragment--> 
+        </tbody>
+      </table>
+    </div>
 </section>
 
-<footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            Acknowledgments: 
-            This website is adopted from the <a href="https://github.com/nerfies/nerfies.github.io">
-            source code </a> of this website, licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
-            Creative Commons Attribution-ShareAlike 4.0 International License</a>. Thanks for their excellent work.
-          </p>
+<!-- Result -->
+<section class="section">
+	<div class="columns is-centered has-text-centered">
+		<div class="column is-four-fifths">
+			<h2 class="title is-3">Results</h2>
+			<div class="content has-text-justified">
+				<p><strong>Results on Video Benchmarks</strong><br>
+					For comprehensive evaluation, we assess the performance of our proposed model across zero-shot QA benchmarks: MSVD-QA, MSRVTT-QA, ActivityNet-QA and 
+					comprehensive video benchmarks: MVBench, VideoMME, MLVU. Our model outperforms existing state-of-the-art methods.
+				</p>
+			</div>
+		</div>
+	</div>
+	<div style="text-align: center;">
+		<h3 class="subtitle has-text-centered">
+		<p style="font-family:Times New Roman">Comparison with SOTAs on Video Benchmark.</p>
+	</div>
+</section>
+
+<!-- Demo -->
+<section class="section">
+    <div style="text-align: center;">
+        <h2 class="title is-3">Demo</h2>
+        <p style="font-family:Times New Roman;font-size:larger;">
+			(Demo videos are from <a href=https://openai.com/index/video-generation-models-as-world-simulators>openai sora)</a>
+		</p>
+        <div class="video-container" style="text-align: center; margin: 10px;">
+            <video id="demo1" controls muted loop playsinline style="height: 300px; margin: 20px">
+                <source src="./static/videos/demo1_1.mp4" type="video/mp4">
+            </video>
+            <video id="demo2_1" controls muted loop playsinline style="height: 300px; margin: 20px">
+                <source src="./static/videos/demo1_2.mp4" type="video/mp4">
+            </video>
         </div>
-      </div>
+        <img id="model" width="50%" src="static/images/demo1_result.png">
     </div>
-  </div>
+    <div style="text-align: center; margin: 100px;">
+        <div class="video-container" style="text-align: center; margin: 50px;">
+            <video id="demo2_1" controls muted loop playsinline style="height: 400px;">
+                <source src="./static/videos/demo2.mp4" type="video/mp4">
+            </video>
+        </div>
+        <img id="model" width="55%" src="static/images/demo2_result.png">
+    </div>
+</section>
+
+<!-- foot -->
+<footer class="footer">
+	<div class="columns is-centered">
+		<div class="column is-4">
+			<div class="content">
+				<p style="font-size: larger;"><strong>Acknowledgments:</strong></p>
+				<p>
+					This website is adopted from the <a href="https://github.com/nerfies/nerfies.github.io">
+					source code </a> of this website, licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+					Creative Commons Attribution-ShareAlike 4.0 International License</a>. Thanks for their excellent work.
+				</p>
+			</div>
+		</div>
+	</div>
 </footer>
 
 </body>
