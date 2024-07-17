@@ -118,24 +118,25 @@
 				<h2 class="title is-3">Abstract</h2>
 				<div class="content has-text-justified">
 					<p>
-						We introduce <strong>Kangaroo</strong>, a powerful Multimodal Large Language Model designed for long-context video understanding. Our presented
-						Kangaroo model shows remarkable performance across diverse video understanding tasks including video caption, QA and conversation. 
-						Generally, our key contributions in this work can be summarized as follows:
+						We introduce <strong>Kangaroo</strong>, a powerful Multimodal Large Language Model designed for long-context video understanding. 
+                        Our presented Kangaroo model shows remarkable performance across diverse video understanding tasks including video caption, QA 
+                        and conversation. Generally, our key contributions in this work can be summarized as follows:
 					<ol>
-						<li><strong>Large-scale Video-Text Dataset.</strong>
-						We develop a data curation and automatic annotation system to generate captions for open-source and internal videos. The generated 
-						large-scale dataset are utilized for video-text pre-training. For video instruction tuning stage, we construct a large-scale video 
-						instruciton tuning dataset based on public and internal datasets covering a variety of tasks.</li>
 						<li><strong>Long-context Video Input.</strong>
-						To enhance the model's capability to comprehend longer videos, we extend the maximum input video frames to 160. 
-						We further design a dynamic frame sampling strategy and spatial-temporal pathify module to improve training efficiency.</li>
-						<li><strong>SOTA Performance.</strong>
+						To enhance the model's capability to comprehend longer videos, we extend the maximum frames of input videos to 160. To this end, we 
+                        aggregate multiple videos with variable frame counts and aspect ratios into one sample. We further design a spatial-temporal pathify 
+                        module to improve training efficiency.</li>
+						<li><strong>Strong Performance.</strong>
 						We evaluate our model across various video understanding benchmarks. The results indicate that our model achieves state-of-the-art 
 						performance on the majority of comprehensive benchmarks and maintain a competitive level in others. Notably, our model outperforms 
 						most larger open-source models with over 30B parameters and some proprietary models on certain benchmarks.</li>
-						<li><strong>Billingual Conversation.</strong>
-						Our proposed model is equipped with the capability of Chinese, English and billingual conversations, and support both single-round and 
-						multi-round conversation paradigms.</li>
+						<li><strong>Large-scale Video Caption Generation System.</strong>
+                        We develop a data curation and automatic annotation system to generate captions for open-source and internal videos. The generated 
+                        large-scale dataset are utilized for video-text pre-training. For video instruction tuning stage, we construct a video instruciton 
+                        tuning dataset based on public and internal datasets covering a variety of tasks.</li>
+                        <li><strong>Billingual Conversation.</strong>
+						Our proposed model is equipped with the capability of Chinese, English and billingual conversations, and support both single-round 
+                        and multi-round conversation paradigms.</li>
 					</ol>
 				</div>
 			</div>
@@ -147,12 +148,14 @@
 	<div class="container is-max-desktop">
 		<div class="columns is-centered has-text-centered">
 			<div class="column is-four-fifths">
-				<h2 class="title is-3" style="margin: 20px">Model</h2>
+				<h2 class="title is-3" style="margin-bottom: 20px">Model</h2>
 			</div>
 		</div>
 	</div>
 	<div style="text-align: center;">
-			<img id="model" width="40%" src="static/images/model.png">
+        <img id="model" width="38%" src="static/images/model.png">
+        <h3 class="subtitle has-text-centered">
+        <p style="font-family:Times New Roman; font-size: 18px;">Architecture of our Kangaroo model.</p>
 	</div>
 </section>
 
@@ -163,21 +166,21 @@
 			<div class="column is-four-fifths">
 				<h2 class="title is-3">Dataset Statistics</h2>
 				<div class="content has-text-justified">
-					<p><strong>Data Curation</strong><br>
-						We seperately collect 300M images from LAION, COYO and Wukong for image-text pre-training and 60.9M videos from ShareGPTVideo and internal data 
-						for video-text pre-training. After collection, we screen the image and video data based on text coverage, face coverage, optical flow and class balance.
+					<p><strong style="font-size: 20px;">Data Curation</strong><br>
+						We sample 300M images from LAION, COYO and Wukong for image-text alignment and 60M videos from Webvid, Youku-mPLUG and internal social media short 
+                        videos for video-text alignment, following a category balance strategy. Images and videos with excessive text coverage, significant face coverage 
+                        and low optical flow scores (for videos) are filtered out. 
 					</p>
-					<p><strong>Automatic Annotation</strong><br>
-						We develop an automatic video annotation system. The process begins with the extraction of 5 key frames of each video, followed by the 
-						utilization of an off-the-shelf Multimodal Large Language (MLLM) to generate frame captions. Next, we employ LLM to synthesize the key frame 
-						captions into a comprehensive  video caption. To enhance the pre-training phase, we further filter and curate a subset of pre-training data 
-						for the refined pre-training stage.
+					<p><strong style="font-size: 20px;">Automatic Annotation</strong><br>
+						We develop an automatic video annotation system. The process begins with the extraction of 5 key frames of each video, followed by the utilization 
+                        of three distinct off-the-shelf Multimodal Large Language Models (MLLM) to generate frame captions. Next, we employ an LLM to synthesize the key 
+                        frame captions into a comprehensive video caption. We further curate a subset of 6M pre-training data and incorporate 900K dense caption data from 
+                        ShareGPTVideo dataset for the refined pre-training stage.
 					</p>
-					<p><strong>Instruction Tuning Data</strong><br>
-						In order to enhance the comprehensive understanding ability of the model, we collect a total number of 2.24M video instruction tuning dataset
-						convering various tasks from public and internal datasets. The instruction tuning dataset consists of short caption, detailed description, 
-						multi-choice and open-ended QA pairs, single-round and multi-round conversations, inluding both Chinese and English annotation.
-					</p>
+					<p><strong style="font-size: 20px;">Instruction Tuning Dataset</strong><br>
+						To enhance the instruction following ability of the model, we compile a video instruction tuning dataset comprising 2.24M samples from public and 
+                        internal sources. The dataset consists of short caption, detailed description, multi-choice QA, open-ended QA, single/multi-round conversation 
+                        in both Chinese and English.
 				</div>
 			</div>
 		</div>
@@ -327,13 +330,27 @@
 
 	<!-- Demo2 -->
 	<div style="text-align: center; margin: 100px;">
-		<div class="video-container" style="text-align: center; margin: 50px;">
+		<div class="video-container" style="text-align: center; margin-top: 50px;">
 			<video id="demo2" controls muted loop playsinline style="height: 300px;">
 				<source src="./static/videos/demo2.mp4" type="video/mp4">
 			</video>
 		</div>
 		<img id="model" width="50%" src="static/images/demo2.png">
 	</div>
+</section>
+
+<!-- Demo -->
+<section class="section">
+	<h2 class="title is-3" style="text-align: center;">Citation</h2>
+    <pre style="width: fit-content; margin: auto;"><code>
+        @misc{kangaroogroup,
+            title={Kangaroo: A Powerful Video-Language Model Supporting Long-context Video Input},
+            url={https://kangaroogroup.github.io/Kangaroo.github.io/},
+            author={Jiajun Liu and Yibing Wang and Hanghang Ma and Xiaoping Wu and Xiaoqi Ma and Jie Hu},
+            month={July},
+            year={2024}
+        }
+    </code></pre>
 </section>
 
 <!-- foot -->

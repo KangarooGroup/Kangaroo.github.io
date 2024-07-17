@@ -9,7 +9,7 @@
 If you find it useful for your research , please cite related papers/blogs using this BibTeX:
 ```bibtex
 
-@misc{kangaroogroup,
+@misc{liu24kangaroo,
 	title={Kangaroo: A Powerful Video-Language Model Supporting Long-context Video Input},
 	url={https://kangaroogroup.github.io/Kangaroo.github.io/},
 	author={Jiajun Liu and Yibing Wang and Hanghang Ma and Xiaoping Wu and Xiaoqi Ma and Jie Hu},
