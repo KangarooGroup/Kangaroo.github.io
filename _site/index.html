@@ -34,13 +34,13 @@
 
 <!-- Title -->
 <section class="hero">
-  	<div class="hero-body">
-    	<div class="container is-max-desktop">
-      		<div class="columns is-centered">
-        		<div class="column has-text-centered">
-          			<h1 class="title is-1 publication-title" style="display: flex; align-items: center;justify-content: center;font-size: 46px;width: 1100px;">
-            		<img src="static/images/kangaroo_logo.png" alt="Logo" style="height: 100px;">
-            		Kangaroo: A Powerful Video-Language Model Supporting Long-context Video Input</h1>
+	<div class="hero-body">
+		<div class="container is-max-desktop">
+			<div class="columns is-centered">
+				<div class="column has-text-centered">
+					<h1 class="title is-1 publication-title" style="display: flex; align-items: center;justify-content: center;font-size: 46px;width: 1100px;">
+					<img src="static/images/kangaroo_logo.png" alt="Logo" style="height: 100px;">
+					Kangaroo: A Powerful Video-Language Model Supporting Long-context Video Input</h1>
 					
 					<div class="is-size-5 publication-authors">
 						<span class="author-block">
@@ -48,22 +48,26 @@
 						<span class="author-block">
 						Yibing Wang<sup>1,2*</sup>,</span>
 						<span class="author-block">
-						Hanghang Ma<sup>1*</sup>,
+						Hanghang Ma<sup>1&dagger;</sup>,
 						</span>
 						<span class="author-block">
-						XiaoPing Wu<sup>1*</sup>,
+						XiaoPing Wu<sup>1&dagger;</sup>,
 						</span>
 						<span class="author-block">
-						Xiaoqi Ma<sup>1*</sup>,
+						Xiaoqi Ma<sup>1&dagger;</sup>,
 						</span>
 						<span class="author-block">
-						Jie Hu<sup>1</sup>,
+						Jie Hu<sup>1&ddagger;</sup>
 						</span>
 					</div>
 
-					<div class="is-size-5 publication-authors">
-						<span class="author-block"><sup>1 </sup>Meituan Inc.</span>
-						<span class="author-block"><sup>2 </sup>University of Chinese Academy of Sciences</span>
+					<div class="is-size-6 publication-authors" style="margin-top: 10px;">
+						<sup>1 </sup>Meituan Inc. &nbsp;&nbsp;<sup>2 </sup>University of Chinese Academy of Sciences
+					</div>
+
+					<div class="is-size-6 publication-authors" style="margin-bottom: 20px;margin-top: 5px;">
+						<sup>* </sup>Joint first authors &nbsp;&nbsp; <sup>&dagger; </sup>Key contributors &nbsp;&nbsp; 
+						<sup>&ddagger; </sup>Project leader & <a href="mailto:hujie@ios.ac.cn"> corresponding author </a>
 					</div>
 
 					<div class="column has-text-centered">
@@ -74,7 +78,7 @@
 							<span class="icon">
 								<i class="fas fa-file-pdf"></i>
 							</span>
-							<span>Paper (Coming soon)</span>
+							<span>Paper (coming soon)</span>
 							</a>
 						</span>
 
@@ -99,10 +103,10 @@
 							<span>Model</span>
 							</a>
 						</span>
-        			</div>
-      			</div>
-    		</div>
-  		</div>
+        	</div>
+      	</div>
+    	</div>
+  	</div>
 	</div>
 </section>
 
@@ -113,8 +117,26 @@
 			<div class="column is-four-fifths">
 				<h2 class="title is-3">Abstract</h2>
 				<div class="content has-text-justified">
-					We introduce Kangaroo, a powerful video multi-modal LLM aimed at long-context video understanding.We collect a large dataset designed for 
-					long video preatraining and understanding tasks.Our model outperforms existing state-of-the-art methods in comprehensive video benchmarks.
+					<p>
+						We introduce <strong>Kangaroo</strong>, a powerful Large Multimodal Model aimed at long-context video understanding. The presented
+						Kangaroo model shows remarkable performance across diverse video understanding tasks including video caption, QA and conversation. 
+						Generally, our key contributions in this work can be summarized as follows:
+					<ol>
+						<li><strong>Large-scale Video-Text Dataset.</strong>
+						We develop a data curation and automatic annotation system to generate captions for open-source and internal videos. The generated 
+						large-scale dataset are utilized for video-text pre-training. For video instruction tuning stage, we construct a large-scale video 
+						instruciton tuning dataset based on public and internal datasets covering a variety of tasks.</li>
+						<li><strong>Long-context Video Input.</strong>
+						To enhance the model's capability to comprehend longer videos, we extend the maximum input video frames to 160. 
+						We further design a dynamic frame sampling strategy and spatial-temporal pathify module to improve training efficiency.</li>
+						<li><strong>SOTA Performance.</strong>
+						We evaluate our model across various video understanding benchmarks. The results indicate that our model achieves state-of-the-art 
+						performance in different comprehensive video benchmarks and maintain a competitive level in others. Notably, our model outperforms 
+						most larger open-source models with over 30B parameters and some proprietary models in certain benchmarks.</li>
+						<li><strong>Billingual Conversation.</strong>
+						Our proposed model is equipped with the capability of Chinese, English and billingual conversations, and support both single-round and 
+						multi-round conversation paradigms.</li>
+						</ol>
 				</div>
 			</div>
 		</div>
@@ -125,15 +147,12 @@
 	<div class="container is-max-desktop">
 		<div class="columns is-centered has-text-centered">
 			<div class="column is-four-fifths">
-				<h2 class="title is-3">Model</h2>
-				<div class="content has-text-justified" style="margin: 20px;">
-					Kangaroo consists of a vision encoder (EVA-CLIP-L), a linear projection layer and a large language model (LLama3-8B):
-				</div>
+				<h2 class="title is-3" style="margin: 20px">Model</h2>
 			</div>
 		</div>
 	</div>
 	<div style="text-align: center;">
-			<img id="model" width="40%" src="static/images/model.png">
+			<img id="model" width="38%" src="static/images/model.png">
 			<h3 class="subtitle has-text-centered">
 			<p style="font-family:Times New Roman; margin: 20px;">The architecture of Kangaroo</p>
 	</div>
@@ -157,7 +176,7 @@
 					<p><strong>Instruction Tuning Data</strong><br>
 						In order to enhance the comprehensive understanding ability of the model, we collect a total number of 2.24M video instruction tuning dataset
 						convering multiple tasks from open-source datasets and online sources. The instruction tuning dataset consists of short caption, detailed description, 
-						multiple choice and open-ended QA pairs, single-round and multi-round conversations, inluding both Chinese and English data.
+						multi-choice and open-ended QA pairs, single-round and multi-round conversations, inluding both Chinese and English data.
 					</p>
 				</div>
 			</div>
@@ -172,112 +191,105 @@
 
 <!-- Model Card -->
 <section class="section">
-    <div class="container is-max-desktop">
-		<div class="columns is-centered has-text-centered">
-			<div class="column is-four-fifths">
-				<h2 class="title is-3">Model Card</h2>
-			</div>
+	<div class="container is-max-desktop">
+	<div class="columns is-centered has-text-centered">
+		<div class="column is-four-fifths">
+			<h2 class="title is-3">Model Card</h2>
 		</div>
-    </div>
-    <div style="text-align: center; margin: 20px;">
-			<table style="text-align: center;;margin:auto">
-				<colgroup>
-				<col style="mso-width-source:userset;width:200pt"> 
-				<col style="mso-width-source:userset;width:180pt"> 
-				<col style="mso-width-source:userset;width:160pt"> 
-				<col style="mso-width-source:userset;width:200pt">
-				<col style="mso-width-source:userset;width:160pt">
-				</colgroup>
-				<tbody>
-				<tr height="45"> 
-				<!-- <th rowspan="2" class="gg">Model</th>  -->
-				<th rowspan="2" style="font-size: 20px;" class="gg">Modules</th> 
-				<th class="gg">Visual Encoder</th> 
-				<th class="gg">Projector</th> 
-				<th class="gg">Patchify Module</th> 
-				<th class="gg">LLM</th> 
-				</tr> 
-				<tr height="45"> 
-				<td class="lgg">EVA-CLIP ViT-L</td> 
-				<td class="lgg">Linear</td> 
-				<td class="lgg">3D Depthwise convolution</td> 
-				<td class="lgg">Llama3-8B</td> 
-				<!-- </tr> 
-				<tr height="45"> 
-				<th class="gg">Size</th> 
-				<td class="gg">303M</td> 
-				<td class="gg">-</td> 
-				<td class="gg">-</td> 
-				<td class="gg">8B</td> 
-				</tr>  -->
-				<tr height="45"> 
-				<th colspan="1" rowspan="3" class="gg" style="font-size: 18px;">Stage 1<br>Image Pre-training</th> 
-				<th class="wg">Resolution</th> 
-				<td colspan="3" class="wg">224</td> 
-				</tr> 
-				<tr height="45"> 
-				<th class="lgg">Training Data</th> 
-				<td colspan="3" class="lgg">300M</td> 
-				</tr> 
-				<tr height="45"> 
-				<th class="wg">Trainable Module</th> 
-				<td colspan="3" class="wg">ViT + Projector</td> 
-				</tr> 
-				<tr height="45"> 
-				<th colspan="1" rowspan="3" class="gg" style="font-size: 18px;">Stage 2<br>Video Pre-training</th> 
-				<th class="lgg">Resolution</th> 
-				<td colspan="3" class="lgg">224 × 8 frames</td> 
-				</tr> 
-				<tr height="45"> 
-				<th class="wg">Training Data</th> 
-				<td colspan="3" class="wg">60M</td> 
-				</tr> 
-				<tr height="45"> 
-				<th class="lgg">Trainable Module</th> 
-				<td colspan="3" class="lgg">ViT + Projector</td> 
-				</tr> 
-				<tr height="45"> 
-				<th colspan="1" rowspan="3" class="gg" style="font-size: 18px;">Stage 3<br>Refined Pre-training</th> 
-				<th class="wg">Resolution</th> 
-				<td colspan="3" class="wg">448 × 16 frames</td> 
-				</tr> 
-				<tr height="45"> 
-				<th class="lgg">Training Data</th> 
-				<td colspan="3" class="lgg">6.9M</td> 
-				</tr> 
-				<tr height="45"> 
-				<th class="wg">Trainable Module</th> 
-				<td colspan="3" class="wg">ViT + Projector + Patchify Module</td> 
-				</tr> 
-				<tr height="45"> 
-				<th colspan="1" rowspan="3" class="gg" style="font-size: 18px;">Stage 4<br>Instruction Tuning</th> 
-				<th class="lgg">Resolution</th> 
-				<td colspan="3" class="lgg">448 × (16 to 64 frames)</td> 
-				</tr> 
-				<tr height="45"> 
-				<th class="wg">Training Data</th> 
-				<td colspan="3" class="wg">2.24M</td> 
-				</tr> 
-				<tr height="45"> 
-				<th class="lgg">Trainable Module</th> 
-				<td colspan="3" class="lgg">Full model</td> 
-				</tr> 
-				<tr height="45"> 
-				<th colspan="1" rowspan="3" class="gg" style="font-size: 18px;">Stage 5<br>Long Video Tuning</th> 
-				<th class="wg">Resolution</th> 
-				<td colspan="3" class="wg">448 × (16 to 64 frames for short videos, 64 to 160 frames for long videos)</td> 
-				</tr> 
-				<tr height="45"> 
-				<th class="lgg">Training Data</th> 
-				<td colspan="3" class="lgg">700K</td> 
-				</tr> 
-				<tr height="45"> 
-				<th class="wg">Trainable Module</th> 
-				<td colspan="3" class="wg">LLM + Projector + Patchify Module</td> 
-				</tr> <!--EndFragment--> 
-				</tbody>
-			</table>
-    </div>
+	</div>
+	</div>
+	<div style="text-align: center; margin: 20px;">
+		<table style="text-align: center;;margin:auto">
+			<colgroup>
+			<col style="mso-width-source:userset;width:180pt"> 
+			<col style="mso-width-source:userset;width:160pt"> 
+			<col style="mso-width-source:userset;width:140pt"> 
+			<col style="mso-width-source:userset;width:180pt">
+			<col style="mso-width-source:userset;width:160pt">
+			</colgroup>
+			<tbody>
+			<tr height="45"> 
+			<!-- <th rowspan="2" class="gg">Model</th>  -->
+			<th rowspan="2" style="font-size: 20px;" class="gg">Modules</th> 
+			<th class="gg">Visual Encoder</th> 
+			<th class="gg">Projector</th> 
+			<th class="gg">Patchify Module</th> 
+			<th class="gg">LLM</th> 
+			</tr> 
+			<tr height="45"> 
+			<td class="lgg">EVA-CLIP ViT-L</td> 
+			<td class="lgg">Linear</td> 
+			<td class="lgg">3D Depthwise convolution</td> 
+			<td class="lgg">Llama3-8B</td> 
+
+			<tr height="45"> 
+			<th colspan="1" rowspan="3" class="gg" style="font-size: 18px;">Stage 1<br>Image Pre-training</th> 
+			<th class="wg">Resolution</th> 
+			<td colspan="3" class="wg">224</td> 
+			</tr> 
+			<tr height="45"> 
+			<th class="lgg">Training Data</th> 
+			<td colspan="3" class="lgg">300M</td> 
+			</tr> 
+			<tr height="45"> 
+			<th class="wg">Trainable Module</th> 
+			<td colspan="3" class="wg">ViT + Projector</td> 
+			</tr> 
+			<tr height="45"> 
+			<th colspan="1" rowspan="3" class="gg" style="font-size: 18px;">Stage 2<br>Video Pre-training</th> 
+			<th class="lgg">Resolution</th> 
+			<td colspan="3" class="lgg">224 × 8 frames</td> 
+			</tr> 
+			<tr height="45"> 
+			<th class="wg">Training Data</th> 
+			<td colspan="3" class="wg">60M</td> 
+			</tr> 
+			<tr height="45"> 
+			<th class="lgg">Trainable Module</th> 
+			<td colspan="3" class="lgg">ViT + Projector</td> 
+			</tr> 
+			<tr height="45"> 
+			<th colspan="1" rowspan="3" class="gg" style="font-size: 18px;">Stage 3<br>Refined Pre-training</th> 
+			<th class="wg">Resolution</th> 
+			<td colspan="3" class="wg">448 × 16 frames</td> 
+			</tr> 
+			<tr height="45"> 
+			<th class="lgg">Training Data</th> 
+			<td colspan="3" class="lgg">6.9M</td> 
+			</tr> 
+			<tr height="45"> 
+			<th class="wg">Trainable Module</th> 
+			<td colspan="3" class="wg">ViT + Projector + Patchify Module</td> 
+			</tr> 
+			<tr height="45"> 
+			<th colspan="1" rowspan="3" class="gg" style="font-size: 18px;">Stage 4<br>Instruction Tuning</th> 
+			<th class="lgg">Resolution</th> 
+			<td colspan="3" class="lgg">448 × (16 to 64 frames)</td> 
+			</tr> 
+			<tr height="45"> 
+			<th class="wg">Training Data</th> 
+			<td colspan="3" class="wg">2.24M</td> 
+			</tr> 
+			<tr height="45"> 
+			<th class="lgg">Trainable Module</th> 
+			<td colspan="3" class="lgg">Full model</td> 
+			</tr> 
+			<tr height="45"> 
+			<th colspan="1" rowspan="3" class="gg" style="font-size: 18px;">Stage 5<br>Long Video Tuning</th> 
+			<th class="wg">Resolution</th> 
+			<td colspan="3" class="wg">448 × (16 to 64 frames for short videos, 64 to 160 frames for long videos)</td> 
+			</tr> 
+			<tr height="45"> 
+			<th class="lgg">Training Data</th> 
+			<td colspan="3" class="lgg">700K</td> 
+			</tr> 
+			<tr height="45"> 
+			<th class="wg">Trainable Module</th> 
+			<td colspan="3" class="wg">LLM + Projector + Patchify Module</td> 
+			</tr> <!--EndFragment--> 
+			</tbody>
+		</table>
+	</div>
 </section>
 
 <!-- Result -->
@@ -287,14 +299,16 @@
 			<div class="column is-four-fifths">
 				<h2 class="title is-3">Results</h2>
 				<div class="content has-text-justified">
-					<p>For comprehensive evaluation, we assess the performance of our proposed model across comprehensive video benchmarks:
-						 Our model outperforms existing state-of-the-art methods.</p>
+					<p>We evaluate the performance of our proposed model on various comprehensive video understanding benchmarks.
+						The results demonstrate that our model outperforms existing state-of-the-art open-source models across major 
+						benchmarks and keeps excellent performance in others. Specificly, our 8B model also surpasses most of larger 
+						models with over 30B parameters</p>
 				</div>
 			</div>
 		</div>
 	</div>
 	<div style="text-align: center;">
-		<img src="static/images/bench.png" width="50%" style="margin: 20px;">
+		<img src="static/images/bench.png" width="50%" style="margin-top: 40px;">
 	</div>
 </section>
 
@@ -307,24 +321,24 @@
 		
 		<!-- Demo1 -->
 		<div class="video-container" style="text-align: center; margin: 10px;">
-			<video id="demo1_1" controls muted loop playsinline style="height: 300px; margin: 20px">
+			<video id="demo1_1" controls muted loop playsinline style="height: 250px; margin: 20px">
 				<source src="./static/videos/demo1_1.mp4" type="video/mp4">
 			</video>
-			<video id="demo1_2" controls muted loop playsinline style="height: 300px; margin: 20px">
+			<video id="demo1_2" controls muted loop playsinline style="height: 250px; margin: 20px">
 				<source src="./static/videos/demo1_2.mp4" type="video/mp4">
 			</video>
 		</div>
-		<img id="model" width="50%" src="static/images/demo1.png">
+		<img id="model" width="45%" src="static/images/demo1.png">
 	</div>
 
 	<!-- Demo2 -->
 	<div style="text-align: center; margin: 100px;">
 		<div class="video-container" style="text-align: center; margin: 50px;">
-			<video id="demo2" controls muted loop playsinline style="height: 350px;">
+			<video id="demo2" controls muted loop playsinline style="height: 300px;">
 				<source src="./static/videos/demo2.mp4" type="video/mp4">
 			</video>
 		</div>
-		<img id="model" width="55%" src="static/images/demo2.png">
+		<img id="model" width="50%" src="static/images/demo2.png">
 	</div>
 </section>
 
