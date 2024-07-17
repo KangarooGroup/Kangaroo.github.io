@@ -131,12 +131,12 @@
 						We further design a dynamic frame sampling strategy and spatial-temporal pathify module to improve training efficiency.</li>
 						<li><strong>SOTA Performance.</strong>
 						We evaluate our model across various video understanding benchmarks. The results indicate that our model achieves state-of-the-art 
-						performance in different comprehensive video benchmarks and maintain a competitive level in others. Notably, our model outperforms 
-						most larger open-source models with over 30B parameters and some proprietary models in certain benchmarks.</li>
+						performance on the majority of comprehensive benchmarks and maintain a competitive level in others. Notably, our model outperforms 
+						most larger open-source models with over 30B parameters and some proprietary models on certain benchmarks.</li>
 						<li><strong>Billingual Conversation.</strong>
 						Our proposed model is equipped with the capability of Chinese, English and billingual conversations, and support both single-round and 
 						multi-round conversation paradigms.</li>
-						</ol>
+					</ol>
 				</div>
 			</div>
 		</div>
@@ -153,8 +153,6 @@
 	</div>
 	<div style="text-align: center;">
 			<img id="model" width="38%" src="static/images/model.png">
-			<h3 class="subtitle has-text-centered">
-			<p style="font-family:Times New Roman; margin: 20px;">The architecture of Kangaroo</p>
 	</div>
 </section>
 
@@ -165,18 +163,20 @@
 			<div class="column is-four-fifths">
 				<h2 class="title is-3">Dataset Statistics</h2>
 				<div class="content has-text-justified">
-					<p><strong>Data curation</strong><br>
-						We collect and XXX images from ... for image-text pretraining and XXX videos from ...
-						After collection, we screen the image and video data based on text coverage, face coverage, optical flow and class balance.
+					<p><strong>Data Curation</strong><br>
+						We seperately collect 300M images from LAION, COYO and Wukong for image-text pre-training and 60.9M videos from ShareGPTVideo and internal data 
+						for video-text pre-training. After collection, we screen the image and video data based on text coverage, face coverage, optical flow and class balance.
 					</p>
 					<p><strong>Automatic Annotation</strong><br>
-						We develop an automatic video caption system. First, we sample 5 frames of each video and leverage off-the-shelf MLLM as frame captioner. 
-						Then, we aggregate the key frame captions with open-source LLM. We further refine the generated video caption in the last step.
+						We develop an automatic video annotation system. The process begins with the extraction of 5 key frames of each video, followed by the 
+						utilization of an off-the-shelf Multimodal Large Language (MLLM) to generate frame captions. Next, we employ LLM to synthesize the key frame 
+						captions into a comprehensive  video caption. To enhance the pre-training phase, we further filter and curate a subset of pre-training data 
+						for the refined pre-training stage.
 					</p>
 					<p><strong>Instruction Tuning Data</strong><br>
 						In order to enhance the comprehensive understanding ability of the model, we collect a total number of 2.24M video instruction tuning dataset
-						convering multiple tasks from open-source datasets and online sources. The instruction tuning dataset consists of short caption, detailed description, 
-						multi-choice and open-ended QA pairs, single-round and multi-round conversations, inluding both Chinese and English data.
+						convering various tasks from public and internal datasets. The instruction tuning dataset consists of short caption, detailed description, 
+						multi-choice and open-ended QA pairs, single-round and multi-round conversations, inluding both Chinese and English annotation.
 					</p>
 				</div>
 			</div>
@@ -298,12 +298,6 @@
 		<div class="columns is-centered has-text-centered">
 			<div class="column is-four-fifths">
 				<h2 class="title is-3">Results</h2>
-				<div class="content has-text-justified">
-					<p>We evaluate the performance of our proposed model on various comprehensive video understanding benchmarks.
-						The results demonstrate that our model outperforms existing state-of-the-art open-source models across major 
-						benchmarks and keeps excellent performance in others. Specificly, our 8B model also surpasses most of larger 
-						models with over 30B parameters</p>
-				</div>
 			</div>
 		</div>
 	</div>
