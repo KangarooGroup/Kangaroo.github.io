@@ -168,8 +168,8 @@
 				<div class="content has-text-justified">
 					<p><strong style="font-size: 20px;">Data Curation</strong><br>
 						We select 300M images from LAION, COYO and Wukong for image-text alignment and 60M videos from Webvid, Youku-mPLUG and internal social media short 
-                        videos for video-text alignment, following a category balance strategy. Images and videos with excessive text coverage, significant face coverage 
-                        and low optical flow scores (for videos) are filtered out. 
+                        videos for video-text alignment, following a category balance strategy. Videos with excessive text coverage, significant face coverage and low 
+                        optical flow scores are filtered out. 
 					</p>
 					<p><strong style="font-size: 20px;">Automatic Annotation</strong><br>
 						We develop an automatic video annotation system. The process begins with the extraction of five key frames of each video, followed by the utilization 
@@ -179,7 +179,7 @@
 					</p>
 					<p><strong style="font-size: 20px;">Instruction Tuning Dataset</strong><br>
 						To enhance the instruction following ability of the model, we compile a video instruction tuning dataset comprising 2.24M samples from public and 
-                        internal sources. The dataset consists of short caption, detailed description, multi-choice QA, open-ended QA, single/multi-round conversation 
+                        internal sources. The dataset consists of short caption, detailed description, multi-choice/open-ended QA, single/multi-round conversation 
                         in both Chinese and English.
 				</div>
 			</div>
