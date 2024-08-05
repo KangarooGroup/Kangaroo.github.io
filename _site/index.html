@@ -51,23 +51,23 @@
 						Hanghang Ma<sup>1&dagger;</sup>,
 						</span>
 						<span class="author-block">
-						XiaoPing Wu<sup>1&dagger;</sup>,
+						Xiaoping Wu<sup>1&dagger;</sup>,
 						</span>
 						<span class="author-block">
 						Xiaoqi Ma<sup>1&dagger;</sup>,
 						</span>
 						<span class="author-block">
-						Jie Hu<sup>1&ddagger;</sup>
+						<a href="https://scholar.google.com/citations?user=DAJdHnkAAAAJ&hl=en"> Jie Hu</a><sup>1&ddagger;</sup>
 						</span>
 					</div>
 
 					<div class="is-size-6 publication-authors" style="margin-top: 10px;">
-						<sup>1 </sup>Meituan Inc. &nbsp;&nbsp;<sup>2 </sup>University of Chinese Academy of Sciences
+						<sup>1 </sup>Meituan &nbsp;&nbsp;<sup>2 </sup>University of Chinese Academy of Sciences
 					</div>
 
 					<div class="is-size-6 publication-authors" style="margin-bottom: 20px;margin-top: 5px;">
 						<sup>* </sup>Joint first authors &nbsp;&nbsp; <sup>&dagger; </sup>Key contributors &nbsp;&nbsp; 
-						<sup>&ddagger; </sup>Project leader & <a href="mailto:hujie@ios.ac.cn"> corresponding author </a>
+						<sup>&ddagger; </sup>Project lead & <a href="mailto:hujie@ios.ac.cn"> Corresponding author </a>
 					</div>
 
 					<div class="column has-text-centered">
@@ -124,7 +124,7 @@
 					<ol>
 						<li><strong>Long-context Video Input.</strong>
 						To enhance the model's capability to comprehend longer videos, we extend the maximum frames of input videos to 160. To this end, we 
-                        aggregate multiple videos with variable frame counts and aspect ratios into one sample. We further design a spatial-temporal pathify 
+                        aggregate multiple videos with variable frame counts and aspect ratios into one sample. We further design a spatial-temporal patchify 
                         module to improve training efficiency.</li>
 						<li><strong>Strong Performance.</strong>
 						We evaluate our model across various video understanding benchmarks. The results indicate that our model achieves state-of-the-art 
@@ -132,10 +132,10 @@
 						most larger open-source models with over 30B parameters and some proprietary models on certain benchmarks.</li>
 						<li><strong>Video Annotation System.</strong>
                         We develop a data curation and automatic annotation system to generate captions for open-source and internal videos. The generated 
-                        large-scale dataset are utilized for video-text pre-training. For video instruction tuning stage, we construct a video instruciton 
+                        large-scale dataset are utilized for video-text pre-training. For video instruction tuning stage, we construct a video instruction 
                         tuning dataset based on public and internal datasets covering a variety of tasks.</li>
-                        <li><strong>Billingual Conversation.</strong>
-						Our proposed model is equipped with the capability of Chinese, English and billingual conversations, and support single/multi-round 
+                        <li><strong>Bilingual Conversation.</strong>
+						Our proposed model is equipped with the capability of Chinese, English and bilingual conversations, and support single/multi-round 
                         conversation paradigms.</li>
 					</ol>
 				</div>
@@ -168,8 +168,8 @@
 				<div class="content has-text-justified">
 					<p><strong style="font-size: 20px;">Data Curation</strong><br>
 						We select 300M images from LAION, COYO and Wukong for image-text alignment and 60M videos from Webvid, Youku-mPLUG and internal social media short 
-                        videos for video-text alignment, following a category balance strategy. Images and videos with excessive text coverage, significant face coverage 
-                        and low optical flow scores (for videos) are filtered out. 
+                        videos for video-text alignment, following a category balance strategy. Videos with excessive text coverage, significant face coverage and low 
+                        optical flow scores are filtered out. 
 					</p>
 					<p><strong style="font-size: 20px;">Automatic Annotation</strong><br>
 						We develop an automatic video annotation system. The process begins with the extraction of five key frames of each video, followed by the utilization 
@@ -179,7 +179,7 @@
 					</p>
 					<p><strong style="font-size: 20px;">Instruction Tuning Dataset</strong><br>
 						To enhance the instruction following ability of the model, we compile a video instruction tuning dataset comprising 2.24M samples from public and 
-                        internal sources. The dataset consists of short caption, detailed description, multi-choice QA, open-ended QA, single/multi-round conversation 
+                        internal sources. The dataset consists of short caption, detailed description, multi-choice/open-ended QA, single/multi-round conversation 
                         in both Chinese and English.
 				</div>
 			</div>
@@ -252,7 +252,7 @@
 			<td colspan="3" class="lgg">ViT + Projector</td> 
 			</tr> 
 			<tr height="45"> 
-			<th colspan="1" rowspan="3" class="gg" style="font-size: 18px;">Stage 3<br>Refined Pre-training</th> 
+			<th colspan="1" rowspan="3" class="gg" style="font-size: 18px;">Stage 3<br>Pre-training Refinement</th> 
 			<th class="wg">Resolution</th> 
 			<td colspan="3" class="wg">448 × 16 frames</td> 
 			</tr> 
@@ -305,7 +305,14 @@
 		</div>
 	</div>
 	<div style="text-align: center;">
-		<img src="static/images/bench.png" width="70%" style="margin-top: 40px;">
+		<img src="static/images/benchmark.png" width="70%" style="margin-top: 40px;">
+        <h3 class="subtitle has-text-centered">
+        <p style="font-family:Times New Roman; font-size: 18px; margin-top: 10px;">Results on Comprehensive Video Understanding Benchmarks.</p>
+	</div>
+	<div style="text-align: center;">
+		<img src="static/images/videomme.png" width="70%" style="margin-top: 40px;">
+        <h3 class="subtitle has-text-centered">
+        <p style="font-family:Times New Roman; font-size: 18px; margin-top: 10px;">Results on VideoMME.</p>
 	</div>
 </section>
 
