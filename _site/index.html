@@ -73,12 +73,12 @@
 					<div class="column has-text-centered">
 						<!-- PDF Link. -->
 						<span class="link-block">
-							<!-- <a href="https://arxiv.org/pdf/2011.12948" -->
-							<a class="external-link button is-normal is-rounded is-dark">
+							<a href="http://arxiv.org/abs/2408.15542"
+							class="external-link button is-normal is-rounded is-dark">
 							<span class="icon">
 								<i class="fas fa-file-pdf"></i>
 							</span>
-							<span>Paper (coming soon)</span>
+							<span>Paper</span>
 							</a>
 						</span>
 
@@ -118,25 +118,29 @@
 				<h2 class="title is-3">Abstract</h2>
 				<div class="content has-text-justified">
 					<p>
-						We introduce <strong>Kangaroo</strong>, a powerful Multimodal Large Language Model designed for long-context video understanding. 
-                        Our presented Kangaroo model shows remarkable performance across diverse video understanding tasks including video caption, QA 
-                        and conversation. Generally, our key contributions in this work can be summarized as follows:
-					<ol>
-						<li><strong>Long-context Video Input.</strong>
-						To enhance the model's capability to comprehend longer videos, we extend the maximum frames of input videos to 160. To this end, we 
-                        aggregate multiple videos with variable frame counts and aspect ratios into one sample. We further design a spatial-temporal patchify 
-                        module to improve training efficiency.</li>
-						<li><strong>Strong Performance.</strong>
-						We evaluate our model across various video understanding benchmarks. The results indicate that our model achieves state-of-the-art 
-						performance on the majority of comprehensive benchmarks and maintain a competitive level in others. Notably, our model outperforms 
-						most larger open-source models with over 30B parameters and some proprietary models on certain benchmarks.</li>
-						<li><strong>Video Annotation System.</strong>
-                        We develop a data curation and automatic annotation system to generate captions for open-source and internal videos. The generated 
-                        large-scale dataset are utilized for video-text pre-training. For video instruction tuning stage, we construct a video instruction 
-                        tuning dataset based on public and internal datasets covering a variety of tasks.</li>
+						Rapid advancements have been made in extending Large Language Models (LLMs) to Large Multi-modal Models (LMMs). However, extending 
+                        input modality of LLMs to video data remains a challenging endeavor, especially for long videos. Due to insufficient access to 
+                        large-scale high-quality video data and the excessive compression of visual features, current methods exhibit limitations in effectively 
+                        processing long videos. In this paper, we introduce Kangaroo, a powerful Video LMM aimed at addressing these challenges. Confronted 
+                        with issue of inadequate training data, we develop a data curation system to build a large-scale dataset with high-quality annotations 
+                        for visionlanguage pre-training and instruction tuning. In addition, we design a curriculum training pipeline with gradually increasing 
+                        resolution and number of input frames to accommodate long videos. Evaluation results demonstrate that, with 8B parameters, Kangaroo 
+                        achieves state-of-the-art performance across a variety of video understanding benchmarks while exhibiting competitive results on others.
+                        Particularly, on benchmarks specialized for long videos, Kangaroo excels some larger models with over 10B parameters and proprietary models.
+					</p>
+                    <strong> Highlights: </strong>
+                    <ol>
+						<li><strong>Large-scale Data Curation.</strong>
+                            Large-scale Data Curation. We develop a data curation system to generate captions for open-source and internal videos and construct a 
+                            video instruction tuning dataset covering a variety of tasks.</li>
+                        <li><strong>Long-context Video Input.</strong>
+                            We extend the maximum frames of input videos to 160, with corresponding sequence length up to 22k tokens.</li>
+                        <li><strong>Superior Performance.</strong>
+                            Our model achieves state-of-the-art performance on the a variety of comprehensive benchmarks and outperforms some larger open-source 
+                            models with over 10B parameters and proprietary models on certain benchmarks.</li>
                         <li><strong>Bilingual Conversation.</strong>
-						Our proposed model is equipped with the capability of Chinese, English and bilingual conversations, and support single/multi-round 
-                        conversation paradigms.</li>
+						    Our proposed model is equipped with the capability of Chinese, English and bilingual conversations, and support single/multi-round 
+                            conversation paradigms.</li>
 					</ol>
 				</div>
 			</div>
@@ -214,16 +218,16 @@
 			<tr height="45"> 
 			<!-- <th rowspan="2" class="gg">Model</th>  -->
 			<th rowspan="2" style="font-size: 20px;" class="gg">Modules</th> 
-			<th class="gg">Visual Encoder</th> 
+			<th class="gg">Vision Encoder</th> 
 			<th class="gg">Projector</th> 
 			<th class="gg">Patchify Module</th> 
 			<th class="gg">LLM</th> 
 			</tr> 
 			<tr height="45"> 
-			<td class="lgg">EVA-CLIP ViT-L</td> 
+			<td class="lgg">EVA-CLIP-L</td> 
 			<td class="lgg">Linear</td> 
-			<td class="lgg">3D Depthwise convolution</td> 
-			<td class="lgg">Llama3-8B</td> 
+			<td class="lgg">3D Depthwise Convolution</td> 
+			<td class="lgg">Llama3-8B-Instruct</td> 
 
 			<tr height="45"> 
 			<th colspan="1" rowspan="3" class="gg" style="font-size: 18px;">Stage 1<br>Image Pre-training</th> 
@@ -305,7 +309,7 @@
 		</div>
 	</div>
 	<div style="text-align: center;">
-		<img src="static/images/benchmark.png" width="70%" style="margin-top: 40px;">
+		<img src="static/images/bench.png" width="70%" style="margin-top: 40px;">
         <h3 class="subtitle has-text-centered">
         <p style="font-family:Times New Roman; font-size: 18px; margin-top: 10px;">Results on Comprehensive Video Understanding Benchmarks.</p>
 	</div>
@@ -313,6 +317,11 @@
 		<img src="static/images/videomme.png" width="70%" style="margin-top: 40px;">
         <h3 class="subtitle has-text-centered">
         <p style="font-family:Times New Roman; font-size: 18px; margin-top: 10px;">Results on VideoMME.</p>
+	</div>
+    <div style="text-align: center;">
+		<img src="static/images/seed.png" width="55%" style="margin-top: 40px;">
+        <h3 class="subtitle has-text-centered">
+        <p style="font-family:Times New Roman; font-size: 18px; margin-top: 10px;">Results on Seedbench-Video.</p>
 	</div>
 </section>
 
@@ -324,25 +333,31 @@
 		(Demo videos are from <a href=https://openai.com/index/video-generation-models-as-world-simulators>openai sora)</a></p>
 		
 		<!-- Demo1 -->
-		<div class="video-container" style="text-align: center; margin: 10px;">
-			<video id="demo1_1" controls muted loop playsinline style="height: 200px; margin: 20px">
-				<source src="./static/videos/demo1_1.mp4" type="video/mp4">
-			</video>
-			<video id="demo1_2" controls muted loop playsinline style="height: 200px; margin: 20px">
-				<source src="./static/videos/demo1_2.mp4" type="video/mp4">
+        <div class="video-container" style="text-align: center; margin: 50px;">
+			<video id="demo1" controls muted loop playsinline style="height: 250px;">
+				<source src="./static/videos/demo1.mp4" type="video/mp4">
 			</video>
 		</div>
-		<img id="model" width="70%" src="static/images/demo1.png">
+		<img id="demo1" width="70%" src="static/images/demo1.png">
+		
 	</div>
 
 	<!-- Demo2 -->
 	<div style="text-align: center; margin: 100px;">
-		<div class="video-container" style="text-align: center; margin: 50px;">
-			<video id="demo2" controls muted loop playsinline style="height: 250px;">
-				<source src="./static/videos/demo2.mp4" type="video/mp4">
+		<div class="video-container" style="text-align: center; margin: 10px;">
+			<video id="demo2_1" controls muted loop playsinline style="height: 200px; margin: 20px">
+				<source src="./static/videos/demo2_1.mp4" type="video/mp4">
+			</video>
+			<video id="demo2_2" controls muted loop playsinline style="height: 200px; margin: 20px">
+				<source src="./static/videos/demo2_2.mp4" type="video/mp4">
 			</video>
 		</div>
-		<img id="model" width="80%" src="static/images/demo2.png">
+		<img id="demo2" width="85%" src="static/images/demo2.png">
+	</div>
+
+    <!-- Demo3 -->
+	<div style="text-align: center; margin: 100px;">
+		<img id="demo3" width="85%" src="static/images/demo3.png">
 	</div>
 </section>
 
